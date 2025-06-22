@@ -1,152 +1,102 @@
 [
   {
-    "id": "gregorian-calendar",
-    "title": "The Gregorian Calendar",
-    "text": "The Gregorian calendar is the most widely used civil calendar in the world. It was introduced in October 1582 by Pope Gregory XIII as a modification of, and replacement for, the Julian calendar. The principal change was to space leap years differently to make the average calendar year 365.2425 days long, more closely approximating the 365.2422-day tropical year.",
-    "url": "https://en.wikipedia.org/wiki/Gregorian_calendar",
+    "id": "atomic-clock-history",
+    "title": "History of Atomic Clocks",
+    "text": "Atomic clocks, first developed in the 1940s and 1950s, revolutionized timekeeping by using the resonant frequency of atoms as their timebase. The first atomic clock, built by the National Institute of Standards and Technology (NIST) in 1949, used ammonia molecules. However, the more practical cesium atomic clock was developed by Louis Essen at the National Physical Laboratory in the UK in 1955. These clocks are so precise that they would lose or gain less than one second in millions of years. Modern optical atomic clocks are even more precise, potentially losing only one second in billions of years.",
+    "url": "https://www.nist.gov/pml/time-and-frequency-division/popular-links/walk-through-time",
     "metadata": {
-      "category": "Calendars",
-      "year": 1582
+      "category": "technology",
+      "year": 1949
     }
   },
   {
-    "id": "julian-calendar",
-    "title": "The Julian Calendar",
-    "text": "The Julian calendar was a reform of the Roman calendar introduced by Julius Caesar in 46 BC. It took effect in 45 BC and remained the dominant calendar in the Western world for over 1600 years until 1582. The Julian calendar has a regular year of 365 days divided into 12 months, with a leap day added to February every four years.",
-    "url": "https://en.wikipedia.org/wiki/Julian_calendar",
+    "id": "utc-development",
+    "title": "Development of Coordinated Universal Time (UTC)",
+    "text": "Coordinated Universal Time (UTC) was established in 1972 as the world's time standard. It replaced Greenwich Mean Time (GMT) as the international time reference. UTC is based on International Atomic Time (TAI) but includes leap seconds to stay synchronized with Earth's rotation. The decision to implement UTC came from the need for a more precise time standard than GMT, which was based on Earth's rotation and varied slightly. UTC is maintained by the International Bureau of Weights and Measures (BIPM) and is used as the basis for civil time around the world.",
+    "url": "https://www.itu.int/en/ITU-R/study-groups/rsg7/Pages/utime.aspx",
     "metadata": {
-      "category": "Calendars",
-      "year": -45
-    }
-  },
-  {
-    "id": "unix-epoch",
-    "title": "Unix Epoch",
-    "text": "The Unix epoch is 00:00:00 UTC on 1 January 1970. This date and time is the point of reference for measuring Unix time, which counts the number of seconds elapsed since this moment (excluding leap seconds). Unix time is widely used in computing systems and programming languages.",
-    "url": "https://en.wikipedia.org/wiki/Unix_time",
-    "metadata": {
-      "category": "Computing Time",
-      "year": 1970
-    }
-  },
-  {
-    "id": "leap-year",
-    "title": "Leap Year",
-    "text": "A leap year is a calendar year that contains an additional day compared to a common year. The 366th day is added to keep the calendar year synchronized with the astronomical year or seasonal year. In the Gregorian calendar, most years divisible by 4 are leap years, with exceptions for years divisible by 100 unless also divisible by 400.",
-    "url": "https://en.wikipedia.org/wiki/Leap_year",
-    "metadata": {
-      "category": "Calendar Systems",
-      "year": 1582
-    }
-  },
-  {
-    "id": "atomic-clock",
-    "title": "Atomic Clock",
-    "text": "An atomic clock is a type of clock that uses the resonance frequencies of atoms as its resonator. The first accurate atomic clock was built in 1955 by Louis Essen and Jack Parry at the National Physical Laboratory in the UK. Atomic clocks are the most accurate time and frequency standards known, and are used to define the second in the International System of Units.",
-    "url": "https://en.wikipedia.org/wiki/Atomic_clock",
-    "metadata": {
-      "category": "Timekeeping Technology",
-      "year": 1955
-    }
-  },
-  {
-    "id": "utc",
-    "title": "Coordinated Universal Time (UTC)",
-    "text": "Coordinated Universal Time (UTC) is the primary time standard by which the world regulates clocks and time. It is within about one second of mean solar time at 0° longitude, and is not adjusted for daylight saving time. UTC was established in 1972, replacing Greenwich Mean Time as the international time standard.",
-    "url": "https://en.wikipedia.org/wiki/Coordinated_Universal_Time",
-    "metadata": {
-      "category": "Time Standards",
+      "category": "standards",
       "year": 1972
     }
   },
   {
-    "id": "daylight-saving",
-    "title": "Daylight Saving Time",
-    "text": "Daylight saving time (DST) is the practice of advancing clocks during warmer months so that darkness falls at a later clock time. The typical implementation advances clocks one hour in spring and adjusts them back in autumn. The modern idea of daylight saving was first proposed in 1895 by George Vernon Hudson and was first implemented during World War I.",
-    "url": "https://en.wikipedia.org/wiki/Daylight_saving_time",
+    "id": "leap-seconds",
+    "title": "Leap Seconds and Earth's Rotation",
+    "text": "Leap seconds are one-second adjustments added to Coordinated Universal Time (UTC) to account for irregularities in Earth's rotation. Since 1972, 27 leap seconds have been added to UTC. Earth's rotation is gradually slowing down due to tidal friction, but it's also affected by other factors like atmospheric changes and earthquakes. The International Earth Rotation and Reference Systems Service (IERS) monitors Earth's rotation and decides when to add leap seconds. There has been ongoing debate about whether to continue using leap seconds or adopt a new system.",
+    "url": "https://www.iers.org/IERS/EN/Science/EarthRotation/LeapSeconds.html",
     "metadata": {
-      "category": "Time Practices",
-      "year": 1916
+      "category": "standards",
+      "year": 1972
+    }
+  },
+  {
+    "id": "mayan-calendar",
+    "title": "Mayan Calendar System",
+    "text": "The ancient Maya developed one of the most sophisticated calendar systems in human history. Their calendar consisted of three interlocking cycles: the Tzolk'in (260-day sacred calendar), the Haab' (365-day solar calendar), and the Long Count (tracking longer periods). The Long Count system could track dates over thousands of years with remarkable precision. The Maya calculated the length of a solar year as 365.2420 days, which is incredibly close to the modern calculation of 365.2422 days. Their calendar system began on August 11, 3114 BCE (in the proleptic Gregorian calendar) and completed a full cycle on December 21, 2012.",
+    "url": "https://www.famsi.org/research/vanstone/2012/",
+    "metadata": {
+      "category": "historical",
+      "year": -3114
+    }
+  },
+  {
+    "id": "sundial-ancient",
+    "title": "Ancient Sundials and Solar Timekeeping",
+    "text": "Sundials are among humanity's oldest timekeeping devices, with evidence of their use dating back to ancient Egypt around 3500 BCE. The principle is simple: a gnomon (pointer) casts a shadow on a marked surface, indicating the time based on the sun's position. Ancient civilizations developed increasingly sophisticated sundial designs. The Greeks and Romans improved upon Egyptian designs, creating portable sundials and developing the theory behind their construction. Different types included horizontal, vertical, equatorial, and polar sundials. The accuracy of sundials depends on geographic location and proper alignment, and they can be precise to within minutes when correctly constructed.",
+    "url": "https://www.sundials.org/",
+    "metadata": {
+      "category": "historical",
+      "year": -3500
+    }
+  },
+  {
+    "id": "mechanical-clocks",
+    "title": "Medieval Mechanical Clocks",
+    "text": "The first mechanical clocks appeared in Europe during the 13th and 14th centuries, marking a revolution in timekeeping. These early clocks used an escapement mechanism to regulate the release of energy from a falling weight. The verge escapement, invented around 1275, was the first practical escapement mechanism. These clocks were often installed in church towers and public buildings. They typically had only an hour hand and were accurate to within 15-30 minutes per day. The introduction of the pendulum by Christiaan Huygens in 1656 dramatically improved accuracy to within seconds per day.",
+    "url": "https://www.britannica.com/technology/clock",
+    "metadata": {
+      "category": "technology",
+      "year": 1275
     }
   },
   {
     "id": "time-zones",
-    "title": "Time Zones",
-    "text": "A time zone is an area which observes a uniform standard time for legal, commercial and social purposes. Time zones tend to follow the boundaries between countries and their subdivisions instead of strictly following longitude. The world is divided into 24 time zones, each generally 15 degrees of longitude apart, corresponding to a one-hour difference in time.",
-    "url": "https://en.wikipedia.org/wiki/Time_zone",
+    "title": "History of Time Zones",
+    "text": "Time zones were established primarily due to the needs of railroad scheduling in the 19th century. Before standardized time zones, each city kept its own local time based on the sun's position. This created scheduling nightmares for the expanding railroad networks. Sir Sandford Fleming, a Canadian railway engineer, proposed the system of worldwide time zones in 1879. The United States adopted standard time zones on November 18, 1883, known as the 'Day of Two Noons.' The International Meridian Conference in 1884 established Greenwich, England, as the prime meridian (0° longitude) and divided the world into 24 time zones.",
+    "url": "https://www.timeanddate.com/time/time-zones-history.html",
     "metadata": {
-      "category": "Time Standards",
-      "year": 1884
+      "category": "standards",
+      "year": 1883
     }
   },
   {
-    "id": "maya-calendar",
-    "title": "Maya Calendar",
-    "text": "The Maya calendar is a system of calendars used in pre-Columbian Mesoamerica and in many modern communities in the Guatemalan highlands, Veracruz, Oaxaca and Chiapas, Mexico. The Maya calendar consists of several cycles or counts of different lengths. The most commonly known Maya cyclical calendars are the Haab, the Tzolk'in, and the Long Count.",
-    "url": "https://en.wikipedia.org/wiki/Maya_calendar",
+    "id": "quartz-clocks",
+    "title": "Quartz Clock Technology",
+    "text": "Quartz clocks, invented in 1927 by Warren Marrison at Bell Telephone Laboratories, use the piezoelectric properties of quartz crystals to maintain accurate time. When an electric current is applied to a quartz crystal, it vibrates at a precise frequency of 32,768 Hz. This frequency is then divided down to create a one-second pulse. Quartz clocks are much more accurate than mechanical clocks, typically losing or gaining only seconds per month. The technology became widely available to consumers in the 1970s and largely replaced mechanical clocks for everyday use. Today, quartz technology is used in everything from wristwatches to computer systems.",
+    "url": "https://www.nist.gov/pml/time-and-frequency-division",
     "metadata": {
-      "category": "Ancient Calendars",
-      "year": -2000
+      "category": "technology",
+      "year": 1927
     }
   },
   {
-    "id": "y2k-bug",
-    "title": "Year 2000 Problem (Y2K)",
-    "text": "The Year 2000 problem, also known as the Y2K bug, was a computer flaw related to the formatting and storage of calendar data for dates on and after January 1, 2000. Many programs represented four-digit years with only the final two digits, making the year 2000 indistinguishable from 1900. The problem was largely resolved through extensive testing and code fixes.",
-    "url": "https://en.wikipedia.org/wiki/Year_2000_problem",
+    "id": "daylight-saving",
+    "title": "Daylight Saving Time History",
+    "text": "Daylight Saving Time (DST) was first implemented widely during World War I as an energy conservation measure. The idea was proposed by George Hudson in 1895 and William Willett in 1905, but it wasn't adopted until wartime. Germany was the first country to implement DST in 1916, followed by Britain and other Allied nations. The United States adopted DST in 1918 but repealed it after the war, only to bring it back during World War II. Modern DST practices vary by country and region. Studies on its effectiveness in saving energy have shown mixed results, and there's ongoing debate about its continued use.",
+    "url": "https://www.timeanddate.com/time/dst/",
     "metadata": {
-      "category": "Computing Time",
-      "year": 2000
+      "category": "standards",
+      "year": 1916
     }
   },
   {
-    "id": "chinese-calendar",
-    "title": "Chinese Calendar",
-    "text": "The Chinese calendar is a lunisolar calendar which identifies years, months, and days according to astronomical phenomena. It is used for determining the dates of traditional Chinese holidays. The calendar consists of repeating cycles of 60 years, with each year being associated with one of the twelve animals of the Chinese zodiac and one of the five elements.",
-    "url": "https://en.wikipedia.org/wiki/Chinese_calendar",
+    "id": "calendar-reform",
+    "title": "Gregorian Calendar Reform",
+    "text": "The Gregorian calendar, introduced by Pope Gregory XIII in 1582, was a reform of the Julian calendar to better align with the solar year. The Julian calendar, introduced by Julius Caesar in 46 BCE, had a leap year every four years, making the average year 365.25 days. However, the actual solar year is about 365.2422 days, causing the calendar to drift. By 1582, the calendar was about 10 days ahead of the solar year. The Gregorian reform skipped 10 days and introduced a more complex leap year rule: years divisible by 100 are not leap years unless they're also divisible by 400. This system is accurate to within one day every 3,300 years.",
+    "url": "https://www.britannica.com/science/Gregorian-calendar",
     "metadata": {
-      "category": "Lunar Calendars",
-      "year": -2637
-    }
-  },
-  {
-    "id": "big-ben",
-    "title": "Big Ben",
-    "text": "Big Ben is the nickname for the Great Bell of the Great Clock of Westminster, and by extension the clock tower itself. The tower was completed in 1859 and the clock first rang on 31 May 1859. Big Ben is considered one of the most accurate public clocks in the world and has been keeping time for over 160 years.",
-    "url": "https://en.wikipedia.org/wiki/Big_Ben",
-    "metadata": {
-      "category": "Historic Timepieces",
-      "year": 1859
-    }
-  },
-  {
-    "id": "solar-time",
-    "title": "Solar Time",
-    "text": "Solar time is a calculation of the passage of time based on the position of the Sun in the sky. The fundamental unit of solar time is the day, which is the time it takes for the Sun to return to the same position in the sky. Mean solar time is the basis for civil time, while apparent solar time varies throughout the year due to Earth's elliptical orbit.",
-    "url": "https://en.wikipedia.org/wiki/Solar_time",
-    "metadata": {
-      "category": "Astronomical Time",
-      "year": -3000
-    }
-  },
-  {
-    "id": "leap-second",
-    "title": "Leap Second",
-    "text": "A leap second is a one-second adjustment that is occasionally applied to Coordinated Universal Time (UTC) to keep it close to mean solar time. The Earth's rotation is gradually slowing down, so leap seconds are added to compensate. Since 1972, a total of 27 leap seconds have been inserted, the most recent on December 31, 2016.",
-    "url": "https://en.wikipedia.org/wiki/Leap_second",
-    "metadata": {
-      "category": "Time Standards",
-      "year": 1972
-    }
-  },
-  {
-    "id": "sundial",
-    "title": "Sundial",
-    "text": "A sundial is a device that tells the time of day when direct sunlight shines by the apparent position of the Sun in the sky. The oldest known sundial dates back to ancient Egypt around 1500 BC. Sundials were widely used to measure time before the development of mechanical clocks and remain popular as garden ornaments and educational tools.",
-    "url": "https://en.wikipedia.org/wiki/Sundial",
-    "metadata": {
-      "category": "Ancient Timekeeping",
-      "year": -1500
+      "category": "historical",
+      "year": 1582
     }
   }
 ]
