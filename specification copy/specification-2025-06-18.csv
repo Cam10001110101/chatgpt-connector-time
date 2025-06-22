@@ -1,0 +1,134 @@
+ID,Category,Subcategory,Requirement,Type,Reference
+1.1.1.1,Base Protocol,JSON-RPC,Messages MUST follow JSON-RPC 2.0 specification,MUST,1.1.1
+1.1.1.2,Base Protocol,JSON-RPC,Requests MUST include a string or integer ID (not null),MUST,1.1.1
+1.1.1.3,Base Protocol,JSON-RPC,Request IDs MUST be unique within a session,MUST,1.1.1
+1.1.1.4,Base Protocol,JSON-RPC,Requests MUST include a method string,MUST,1.1.1
+1.1.1.5,Base Protocol,JSON-RPC,JSON-RPC batching is NOT supported,MUST,1.1.1
+1.1.2.1,Base Protocol,JSON-RPC,Responses MUST include the same ID as the corresponding request,MUST,1.1.2
+1.1.2.2,Base Protocol,JSON-RPC,Responses MUST include either a result or an error (not both),MUST,1.1.2
+1.1.2.3,Base Protocol,JSON-RPC,Error responses MUST include an error code and message,MUST,1.1.2
+1.1.3.1,Base Protocol,JSON-RPC,Notifications MUST NOT include an ID,MUST,1.1.3
+1.1.3.2,Base Protocol,JSON-RPC,Notifications MUST include a method string,MUST,1.1.3
+1.2.1.1,Base Protocol,Transport,STDIO: Client MUST launch server as subprocess,MUST,1.2.1
+1.2.1.2,Base Protocol,Transport,STDIO: Server MUST read from stdin and write to stdout,MUST,1.2.1
+1.2.1.3,Base Protocol,Transport,STDIO: Messages MUST be delimited by newlines,MUST,1.2.1
+1.2.1.4,Base Protocol,Transport,STDIO: Messages MUST NOT contain embedded newlines,MUST,1.2.1
+1.2.1.5,Base Protocol,Transport,STDIO: Server MUST NOT write anything to stdout that is not a valid MCP message,MUST,1.2.1
+1.2.1.6,Base Protocol,Transport,STDIO: Client MUST NOT write anything to stdin that is not a valid MCP message,MUST,1.2.1
+1.2.2.1,Base Protocol,Transport,HTTP: Server MUST provide single HTTP endpoint supporting POST and GET,MUST,1.2.2
+1.2.2.2,Base Protocol,Transport,HTTP: Client messages MUST be sent as HTTP POST requests,MUST,1.2.2
+1.2.2.3,Base Protocol,Transport,HTTP: Server MAY use Server-Sent Events for streaming responses,MAY,1.2.2
+1.2.2.4,Base Protocol,Transport,HTTP: Client MUST include MCP-Protocol-Version header on all requests,MUST,1.2.2
+1.2.2.5,Base Protocol,Transport,HTTP: Server MUST validate Origin header to prevent DNS rebinding attacks,MUST,1.2.2
+1.2.2.6,Base Protocol,Transport,HTTP: Servers SHOULD bind only to localhost when running locally,SHOULD,1.2.2
+1.3.1.1,Base Protocol,Lifecycle,Client MUST send initialize request as first interaction,MUST,1.3.1
+1.3.1.2,Base Protocol,Lifecycle,Initialize request MUST include protocol version supported,MUST,1.3.1
+1.3.1.3,Base Protocol,Lifecycle,Initialize request MUST include client capabilities,MUST,1.3.1
+1.3.1.4,Base Protocol,Lifecycle,Initialize request MUST include client implementation information,MUST,1.3.1
+1.3.1.5,Base Protocol,Lifecycle,Server MUST respond with protocol version,MUST,1.3.1
+1.3.1.6,Base Protocol,Lifecycle,Server MUST respond with server capabilities,MUST,1.3.1
+1.3.1.7,Base Protocol,Lifecycle,Server MUST respond with server implementation information,MUST,1.3.1
+1.3.1.8,Base Protocol,Lifecycle,After successful initialization client MUST send initialized notification,MUST,1.3.1
+1.3.2.1,Base Protocol,Lifecycle,Client MUST send a protocol version it supports,MUST,1.3.2
+1.3.2.2,Base Protocol,Lifecycle,If server supports requested version it MUST respond with same version,MUST,1.3.2
+1.3.2.3,Base Protocol,Lifecycle,Otherwise server MUST respond with another supported version,MUST,1.3.2
+1.3.2.4,Base Protocol,Lifecycle,If client doesn't support server's version it SHOULD disconnect,SHOULD,1.3.2
+1.3.3.1,Base Protocol,Lifecycle,Client and server MUST declare capabilities during initialization,MUST,1.3.3
+1.3.3.2,Base Protocol,Lifecycle,Both parties SHOULD respect negotiated capabilities,SHOULD,1.3.3
+1.3.4.1,Base Protocol,Lifecycle,For stdio: client SHOULD close input stream to server for shutdown,SHOULD,1.3.4
+1.3.4.2,Base Protocol,Lifecycle,For HTTP: shutdown indicated by closing HTTP connections,INFO,1.3.4
+1.4.1.1,Base Protocol,Authorization,MCP servers MUST act as OAuth 2.1 resource servers,MUST,1.4.1
+1.4.1.2,Base Protocol,Authorization,MCP clients MUST implement Resource Indicators (RFC 8707),MUST,1.4.1
+1.4.1.3,Base Protocol,Authorization,Authorization servers MUST implement OAuth 2.1 with security measures,MUST,1.4.1
+1.4.1.4,Base Protocol,Authorization,Authorization servers SHOULD support Dynamic Client Registration,SHOULD,1.4.1
+1.4.2.1,Base Protocol,Authorization,MCP servers MUST implement OAuth 2.0 Protected Resource Metadata,MUST,1.4.2
+1.4.2.2,Base Protocol,Authorization,Servers MUST use WWW-Authenticate header when returning 401,MUST,1.4.2
+1.4.2.3,Base Protocol,Authorization,Clients MUST parse WWW-Authenticate headers and respond to 401,MUST,1.4.2
+1.4.3.1,Base Protocol,Authorization,Clients MUST use Authorization header with Bearer token,MUST,1.4.3
+1.4.3.2,Base Protocol,Authorization,Access tokens MUST NOT be included in URI query strings,MUST,1.4.3
+1.4.3.3,Base Protocol,Authorization,Servers MUST validate access tokens were issued specifically for them,MUST,1.4.3
+1.4.3.4,Base Protocol,Authorization,Servers MUST NOT accept tokens intended for other resources,MUST,1.4.3
+1.5.1.1,Base Protocol,Security,Users MUST explicitly consent to data access and operations,MUST,1.5.1
+1.5.1.2,Base Protocol,Security,Users MUST retain control over data sharing and actions,MUST,1.5.1
+1.5.1.3,Base Protocol,Security,Hosts MUST obtain explicit user consent before exposing user data,MUST,1.5.1
+1.5.1.4,Base Protocol,Security,Tools require explicit user consent before invocation,MUST,1.5.1
+1.5.2.1,Base Protocol,Security,Servers MUST validate token audience to prevent confused deputy attacks,MUST,1.5.2
+1.5.2.2,Base Protocol,Security,Token passthrough is explicitly forbidden,MUST,1.5.2
+1.5.2.3,Base Protocol,Security,Clients MUST include resource parameter in authorization requests,MUST,1.5.2
+1.5.2.4,Base Protocol,Security,Authorization servers SHOULD issue short-lived access tokens,SHOULD,1.5.2
+1.5.3.1,Base Protocol,Security,Session IDs MUST be secure and non-deterministic,MUST,1.5.3
+1.5.3.2,Base Protocol,Security,Servers SHOULD bind session IDs to user-specific information,SHOULD,1.5.3
+1.5.3.3,Base Protocol,Security,Servers MUST verify all inbound requests when authorization is implemented,MUST,1.5.3
+2.1.1.1,Server Features,Resources,Servers supporting resources MUST declare resources capability,MUST,2.1.1
+2.1.1.2,Server Features,Resources,Resources capability MAY include subscribe feature,MAY,2.1.1
+2.1.1.3,Server Features,Resources,Resources capability MAY include listChanged feature,MAY,2.1.1
+2.1.2.1,Server Features,Resources,Server response to resources/list MUST include resources array,MUST,2.1.2
+2.1.2.2,Server Features,Resources,Each resource MUST include uri and name,MUST,2.1.2
+2.1.2.3,Server Features,Resources,Each resource SHOULD include title for display purposes,SHOULD,2.1.2
+2.1.3.1,Server Features,Resources,Server response to resources/read MUST include contents array,MUST,2.1.3
+2.1.3.2,Server Features,Resources,Each content item MUST include uri and either text or blob,MUST,2.1.3
+2.1.3.3,Server Features,Resources,Each content item SHOULD include mimeType,SHOULD,2.1.3
+2.1.4.1,Server Features,Resources,Server response to resources/templates/list MUST include resourceTemplates array,MUST,2.1.4
+2.1.4.2,Server Features,Resources,Each template MUST include uriTemplate,MUST,2.1.4
+2.1.5.1,Server Features,Resources,Server MUST send notifications/resources/updated when resource changes,MUST,2.1.5
+2.1.5.2,Server Features,Resources,Server MUST support subscribe capability to use subscription feature,MUST,2.1.5
+2.1.6.1,Server Features,Resources,Server SHOULD send notifications/resources/list_changed when resource list changes,SHOULD,2.1.6
+2.1.6.2,Server Features,Resources,Server MUST support listChanged capability to use list_changed notification,MUST,2.1.6
+2.2.1.1,Server Features,Prompts,Servers supporting prompts MUST declare prompts capability,MUST,2.2.1
+2.2.1.2,Server Features,Prompts,Prompts capability MAY include listChanged feature,MAY,2.2.1
+2.2.2.1,Server Features,Prompts,Server response to prompts/list MUST include prompts array,MUST,2.2.2
+2.2.2.2,Server Features,Prompts,Each prompt MUST include name,MUST,2.2.2
+2.2.2.3,Server Features,Prompts,Each prompt SHOULD include title for display purposes,SHOULD,2.2.2
+2.2.3.1,Server Features,Prompts,Server response to prompts/get MUST include messages array,MUST,2.2.3
+2.2.3.2,Server Features,Prompts,Each message MUST include role and content,MUST,2.2.3
+2.2.3.3,Server Features,Prompts,Content MUST be one of: text image audio or resource,MUST,2.2.3
+2.2.4.1,Server Features,Prompts,Server SHOULD send notifications/prompts/list_changed when prompt list changes,SHOULD,2.2.4
+2.2.4.2,Server Features,Prompts,Server MUST support listChanged capability to use list_changed notification,MUST,2.2.4
+2.3.1.1,Server Features,Tools,Servers supporting tools MUST declare tools capability,MUST,2.3.1
+2.3.1.2,Server Features,Tools,Tools capability MAY include listChanged feature,MAY,2.3.1
+2.3.2.1,Server Features,Tools,Server response to tools/list MUST include tools array,MUST,2.3.2
+2.3.2.2,Server Features,Tools,Each tool MUST include name description and inputSchema,MUST,2.3.2
+2.3.2.3,Server Features,Tools,Each tool SHOULD include title for display purposes,SHOULD,2.3.2
+2.3.2.4,Server Features,Tools,Each tool MAY include outputSchema for structured results,MAY,2.3.2
+2.3.3.1,Server Features,Tools,Server response to tools/call MUST include content array and isError flag,MUST,2.3.3
+2.3.3.2,Server Features,Tools,Each content item MUST be one of: text image audio resource or resource_link,MUST,2.3.3
+2.3.3.3,Server Features,Tools,Tools MAY return structured content in structuredContent field,MAY,2.3.3
+2.3.3.4,Server Features,Tools,If outputSchema provided structured results MUST conform to schema,MUST,2.3.3
+2.3.4.1,Server Features,Tools,Server SHOULD send notifications/tools/list_changed when tool list changes,SHOULD,2.3.4
+2.3.4.2,Server Features,Tools,Server MUST support listChanged capability to use list_changed notification,MUST,2.3.4
+3.1.1.1,Client Features,Roots,Clients supporting roots MUST declare roots capability,MUST,3.1.1
+3.1.1.2,Client Features,Roots,Roots capability MAY include listChanged feature,MAY,3.1.1
+3.1.2.1,Client Features,Roots,Client response to roots/list MUST include roots array,MUST,3.1.2
+3.1.2.2,Client Features,Roots,Each root MUST include uri,MUST,3.1.2
+3.1.2.3,Client Features,Roots,Each root SHOULD include name for display purposes,SHOULD,3.1.2
+3.1.3.1,Client Features,Roots,Client MUST send notifications/roots/list_changed when root list changes,MUST,3.1.3
+3.1.3.2,Client Features,Roots,Client MUST support listChanged capability to use list_changed notification,MUST,3.1.3
+3.2.1.1,Client Features,Sampling,Clients supporting sampling MUST declare sampling capability,MUST,3.2.1
+3.2.2.1,Client Features,Sampling,Client response to sampling/createMessage MUST include role content model stopReason,MUST,3.2.2
+3.2.2.2,Client Features,Sampling,Content MUST be one of: text image or audio,MUST,3.2.2
+3.2.2.3,Client Features,Sampling,Clients SHOULD implement human-in-the-loop approval for sampling requests,SHOULD,3.2.2
+3.3.1.1,Client Features,Elicitation,Clients supporting elicitation MUST declare elicitation capability,MUST,3.3.1
+3.3.2.1,Client Features,Elicitation,Client response to elicitation/create MUST include action and optionally content,MUST,3.3.2
+3.3.2.2,Client Features,Elicitation,Action MUST be one of: accept reject or cancel,MUST,3.3.2
+3.3.2.3,Client Features,Elicitation,Schema MUST be restricted to flat objects with primitive properties,MUST,3.3.2
+3.3.2.4,Client Features,Elicitation,Clients SHOULD provide clear UI for elicitation requests,SHOULD,3.3.2
+4.1.1.1,Utilities,Ping,Ping receiver MUST respond promptly with empty response,MUST,4.1.1
+4.2.1.1,Utilities,Cancellation,Cancellation notification MUST include requestId of request to cancel,MUST,4.2.1
+4.2.1.2,Utilities,Cancellation,Cancellation notifications MUST only reference previously issued requests,MUST,4.2.1
+4.2.1.3,Utilities,Cancellation,Initialize request MUST NOT be cancelled by clients,MUST,4.2.1
+4.2.1.4,Utilities,Cancellation,Receivers SHOULD stop processing cancelled request,SHOULD,4.2.1
+4.3.1.1,Utilities,Progress,Progress tokens MUST be unique across active requests,MUST,4.3.1
+4.3.2.1,Utilities,Progress,Progress notifications MUST include progressToken and progress value,MUST,4.3.2
+4.3.2.2,Utilities,Progress,Progress value MUST increase with each notification,MUST,4.3.2
+4.3.2.3,Utilities,Progress,Progress notifications MUST only reference active requests,MUST,4.3.2
+4.4.1.1,Utilities,Logging,Servers supporting logging MUST declare logging capability,MUST,4.4.1
+4.4.2.1,Utilities,Logging,Log messages MUST follow standard syslog severity levels,MUST,4.4.2
+4.4.2.2,Utilities,Logging,Log messages MUST NOT contain sensitive information,MUST,4.4.2
+4.5.1.1,Utilities,Completion,Server response to completion/complete MUST include completion values,MUST,4.5.1
+4.5.1.2,Utilities,Completion,Completion response limited to maximum 100 items per response,MUST,4.5.1
+4.5.1.3,Utilities,Completion,Completion requests MAY include context with previously-resolved arguments,MAY,4.5.1
+4.6.1.1,Utilities,Pagination,Clients MUST treat cursors as opaque tokens,MUST,4.6.1
+4.6.1.2,Utilities,Pagination,Servers SHOULD provide stable cursors,SHOULD,4.6.1
+4.6.1.3,Utilities,Pagination,Missing nextCursor indicates end of results,INFO,4.6.1
+5.1.1.1,Meta Fields,Reserved,The _meta property is reserved by MCP for protocol-level metadata,MUST,5.1.1
+5.1.1.2,Meta Fields,Reserved,Prefixes beginning with modelcontextprotocol or mcp are reserved for MCP use,MUST,5.1.1 

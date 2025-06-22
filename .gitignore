@@ -1,0 +1,160 @@
+# ===================================
+# MCP Server HTTP Time - .gitignore
+# ===================================
+
+# Dependencies
+node_modules/
+node/
+node
+node_*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Package manager lock files (keep package-lock.json)
+# yarn.lock
+# pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+out/
+*.js
+*.js.map
+*.d.ts
+!src/**/*.d.ts
+
+# TypeScript
+*.tsbuildinfo
+.tscache/
+
+# Cloudflare Workers
+.wrangler/
+worker/
+*.worker.js
+.dev.vars
+wrangler.toml
+wrangler.toml.bak
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# MCP Development
+.mcp/
+mcp-server.log
+*.mcp.log
+
+# Testing
+coverage/
+*.lcov
+.nyc_output
+test-results/
+playwright-report/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories and caches
+.npm/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+.eslintcache
+
+# Build tool caches
+.cache/
+.parcel-cache/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.rollup.cache/
+
+# Optional REPL history
+.node_repl_history
+
+# Package archives
+*.tgz
+*.tar.gz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Framework specific
+.next/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+
+# Database
+.dynamodb/
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+.tmpenvs
+.temp/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Security
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.json
+
+# Documentation build
+docs/build/
+docs/.vuepress/dist/
+
+# Protocol specifications
+specification/
+
+# Monitoring and analytics
+.lighthouseci/

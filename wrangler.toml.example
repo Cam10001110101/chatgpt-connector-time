@@ -1,0 +1,15 @@
+name = "chatgpt-connector-time"
+main = "src/index.ts"
+compatibility_date = "2025-03-21"
+compatibility_flags = [ "nodejs_compat" ]
+
+# Example route configuration - replace with your own domain
+# Uncomment and modify the following lines to deploy to your custom domain:
+#
+# [[routes]]
+# pattern = "your-subdomain.your-domain.com/*"
+# zone_name = "your-domain.com"
+
+# Optional: Enable observability features
+[observability]
+enabled = true
