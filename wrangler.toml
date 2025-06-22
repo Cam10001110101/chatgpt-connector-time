@@ -1,0 +1,8 @@
+name = "chatgpt-connector-time"
+main = "dist/index.js"
+compatibility_date = "2025-03-21"
+compatibility_flags = [ "nodejs_compat" ]
+
+# Optional: Enable observability features
+[observability]
+enabled = true
