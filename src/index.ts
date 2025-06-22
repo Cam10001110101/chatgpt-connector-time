@@ -36,37 +36,61 @@ const TIME_RECORDS_LOOKUP: Record<string, TimeRecord> = TIME_RECORDS.reduce((acc
 	return acc;
 }, {} as Record<string, TimeRecord>);
 
-// Tool definitions
+// Tool definitions - organized for both Chat and Deep Research capabilities
 const tools = [
+	// CHAT TOOLS - For quick, conversational interactions
 	{
 		name: 'current_time',
-		title: 'Get Current Time',
-		description: 'Returns the current time in UTC and a specified or guessed timezone.',
+		title: 'Current Time',
+		description: 'Get the current time now. Perfect for questions like "What time is it?" or "What time is it in Tokyo?" Supports any timezone and custom formatting.',
 		inputSchema: {
 			type: "object",
 			properties: {
 				format: {
 					type: "string",
-					description: "The format for the returned time string.",
+					description: "How to format the time (default: YYYY-MM-DD HH:mm:ss). Examples: 'h:mm A' for 12-hour, 'HH:mm' for 24-hour",
 					default: "YYYY-MM-DD HH:mm:ss"
 				},
 				timezone: {
 					type: "string",
-					description: "The IANA timezone name (e.g., \"America/New_York\"). Defaults to the server's guessed timezone."
+					description: "IANA timezone name like 'America/New_York', 'Europe/London', 'Asia/Tokyo'. If not specified, uses system timezone."
 				}
 			}
 		}
 	},
 	{
+		name: 'convert_time',
+		title: 'Convert Time Between Timezones',
+		description: 'Convert any time from one timezone to another. Great for scheduling across timezones or travel planning.',
+		inputSchema: {
+			type: "object",
+			properties: {
+				sourceTimezone: {
+					type: "string",
+					description: "Source timezone (e.g., 'America/Los_Angeles', 'UTC', 'Europe/Paris')"
+				},
+				targetTimezone: {
+					type: "string",
+					description: "Target timezone (e.g., 'Asia/Tokyo', 'America/New_York')"
+				},
+				time: {
+					type: "string",
+					description: "Time to convert in format YYYY-MM-DD HH:mm:ss (e.g., '2025-06-22 15:30:00')"
+				}
+			},
+			required: ["sourceTimezone", "targetTimezone", "time"]
+		}
+	},
+	{
 		name: 'relative_time',
-		title: 'Get Relative Time',
-		description: 'Calculates the relative time from now to a given time string.',
+		title: 'Time Ago/Until',
+		description: 'Calculate how long ago something happened or how long until a future event. Examples: "How long ago was 2020-01-01?" or "How long until Christmas?"',
 		inputSchema: {
 			type: "object",
 			properties: {
 				time: {
 					type: "string",
-					description: "The time to compare. Format: YYYY-MM-DD HH:mm:ss"
+					description: "Date/time to compare (format: YYYY-MM-DD HH:mm:ss or YYYY-MM-DD)"
 				}
 			},
 			required: ["time"]
@@ -74,79 +98,58 @@ const tools = [
 	},
 	{
 		name: 'days_in_month',
-		title: 'Get Days in Month',
-		description: 'Returns the number of days in the month of a given date.',
+		title: 'Days in Month',
+		description: 'Find out how many days are in any month and year. Accounts for leap years automatically.',
 		inputSchema: {
 			type: "object",
 			properties: {
 				date: {
 					type: "string",
-					description: "The date to check. Format: YYYY-MM-DD"
+					description: "Date in format YYYY-MM-DD (e.g., '2024-02-01'). If not provided, uses current month."
 				}
 			}
 		}
 	},
 	{
 		name: 'get_timestamp',
-		title: 'Get Timestamp',
-		description: 'Converts a date-time string to a Unix timestamp in milliseconds.',
+		title: 'Unix Timestamp',
+		description: 'Convert a date/time to Unix timestamp (milliseconds since 1970). Useful for programming and API work.',
 		inputSchema: {
 			type: "object",
 			properties: {
 				time: {
 					type: "string",
-					description: "The time to convert. Format: YYYY-MM-DD HH:mm:ss"
+					description: "Date/time to convert (format: YYYY-MM-DD HH:mm:ss). If not provided, uses current time."
 				}
 			}
 		}
 	},
 	{
-		name: 'convert_time',
-		title: 'Convert Timezone',
-		description: 'Converts a time from a source timezone to a target timezone.',
-		inputSchema: {
-			type: "object",
-			properties: {
-				sourceTimezone: {
-					type: "string",
-					description: "The source IANA timezone name (e.g., \"Asia/Shanghai\")."
-				},
-				targetTimezone: {
-					type: "string",
-					description: "The target IANA timezone name (e.g., \"Europe/London\")."
-				},
-				time: {
-					type: "string",
-					description: "The time to convert. e.g., \"2025-03-23 12:30:00\"."
-				}
-			},
-			required: ["sourceTimezone", "targetTimezone", "time"]
-		}
-	},
-	{
 		name: 'get_week_year',
-		title: 'Get Week of Year',
-		description: 'Returns the week and ISO week number for a given date.',
+		title: 'Week Number',
+		description: 'Get the week number of the year for any date. Returns both standard and ISO week numbers.',
 		inputSchema: {
 			type: "object",
 			properties: {
 				date: {
 					type: "string",
-					description: "The date to check. e.g., \"2025-03-23\""
+					description: "Date to check (format: YYYY-MM-DD). If not provided, uses today."
 				}
 			}
 		}
 	},
+	
+	// DEEP RESEARCH TOOLS - For comprehensive time knowledge search
 	{
 		name: 'search',
 		title: 'Search Time Knowledge',
-		description: 'Searches for time-related historical facts, calendar systems, timekeeping technologies, and time standards using keyword matching across titles, content, and metadata.',
+		description: 'Search through comprehensive time-related knowledge including historical events, calendar systems, timekeeping technologies, and time standards. Perfect for research about time concepts, history, and scientific developments.',
 		inputSchema: {
 			type: "object",
 			properties: {
 				query: {
 					type: "string",
-					description: "Search query for time-related topics. Examples: 'calendar', 'atomic clock', 'UTC', 'leap year', 'timezone', 'maya calendar', 'sundial'"
+					description: "Search query for time-related topics. Examples: 'atomic clock history', 'mayan calendar', 'leap second', 'UTC development', 'sundial ancient'"
 				}
 			},
 			required: ["query"]
@@ -154,14 +157,14 @@ const tools = [
 	},
 	{
 		name: 'fetch',
-		title: 'Fetch Time Knowledge Item',
-		description: 'Retrieves detailed content for a specific time-related knowledge item by its ID.',
+		title: 'Get Detailed Time Knowledge',
+		description: 'Retrieve complete details about a specific time-related topic by its ID. Use this after searching to get full information with sources and references.',
 		inputSchema: {
 			type: "object",
 			properties: {
 				id: {
 					type: "string",
-					description: "ID of the time knowledge item to fetch (e.g., 'gregorian-calendar', 'unix-epoch', 'atomic-clock')"
+					description: "ID of the knowledge item (obtained from search results)"
 				}
 			},
 			required: ["id"]
