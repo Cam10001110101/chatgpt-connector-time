@@ -143,13 +143,28 @@ const tools = [
 	{
 		name: 'search',
 		title: 'Search Time Knowledge',
-		description: 'Search through comprehensive time-related knowledge including historical events, calendar systems, timekeeping technologies, and time standards. Perfect for research about time concepts, history, and scientific developments.',
+		description: `Search comprehensive time-related knowledge including historical events, calendar systems, timekeeping technologies, and scientific developments.
+
+Usage Guidelines:
+• Use specific keywords related to time concepts (e.g., "atomic clock", "calendar reform", "time zone history")
+• Search by historical periods (e.g., "ancient timekeeping", "medieval calendar")
+• Look for scientific developments (e.g., "UTC development", "leap second")
+• Find cultural time practices (e.g., "Mayan calendar", "lunar calendar")
+
+Examples:
+• "atomic clock invention" - Find the history of atomic timekeeping
+• "gregorian calendar reform" - Learn about calendar system changes
+• "sundial ancient civilizations" - Discover early timekeeping methods
+• "time zone standardization" - Research time zone development
+• "leap year calculation" - Understand leap year history and methods
+
+The search covers topics from ancient civilizations to modern scientific timekeeping.`,
 		inputSchema: {
 			type: "object",
 			properties: {
 				query: {
 					type: "string",
-					description: "Search query for time-related topics. Examples: 'atomic clock history', 'mayan calendar', 'leap second', 'UTC development', 'sundial ancient'"
+					description: "Search query for time-related knowledge. Use specific keywords about time concepts, historical periods, technologies, or cultural practices."
 				}
 			},
 			required: ["query"]
@@ -567,12 +582,34 @@ export default {
 					},
 				});
 			} else if (request.method === 'GET') {
-				// For now, return 405 Method Not Allowed for GET requests
-				// In a full implementation, this would handle SSE streams
-				return new Response('Method not allowed', { 
-					status: 405,
+				// Return server info for GET requests
+				const url = new URL(request.url);
+				if (url.pathname === '/sse') {
+					// SSE endpoint - future implementation
+					return new Response('SSE endpoint not yet implemented', {
+						status: 501,
+						headers: {
+							'Access-Control-Allow-Origin': '*',
+						}
+					});
+				}
+				
+				// Default GET - return server information
+				return new Response(JSON.stringify({
+					name: 'mcp-server-http-time',
+					version: '1.0.0',
+					description: 'Time utilities and comprehensive time knowledge MCP server',
+					transport: ['http'],
+					capabilities: {
+						tools: true,
+						search: true,
+						fetch: true
+					},
+					instructions: 'This server provides access to comprehensive time-related knowledge. Use the search tool to find information about historical timekeeping, scientific time standards, calendar systems, time zones, cultural time practices, and modern time synchronization. For current time operations, use the utility tools.'
+				}, null, 2), {
 					headers: {
-						'Access-Control-Allow-Origin': '*',
+						'Content-Type': 'application/json',
+						'Access-Control-Allow-Origin': '*'
 					}
 				});
 			} else {
